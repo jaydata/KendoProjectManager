@@ -32,6 +32,7 @@
     <Folder Include="App_Resources\Android\drawable-nodpi">
       <Platform>Android</Platform>
     </Folder>
+    <Folder Include="kendo\styles\Default" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="App_Resources\iOS\icon.png" />
@@ -57,14 +58,29 @@
     <Resource Include="App_Resources\Android\drawable-nodpi\splashscreen.9.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="scripts\viewModel.js" />
+    <Content Include="selectGroup.html" />
+    <Content Include="userEdit.html" />
+    <Content Include="projectEdit.html" />
+    <Content Include="editTask.html" />
     <Content Include="index.html" />
     <Content Include="kendo\js\jquery.min.js" />
     <Content Include="kendo\js\kendo.mobile.min.js" />
+    <Content Include="kendo\styles\Default\editor.png" />
+    <Content Include="kendo\styles\Default\imagebrowser.png" />
+    <Content Include="kendo\styles\Default\loading-image.gif" />
+    <Content Include="kendo\styles\Default\loading.gif" />
+    <Content Include="kendo\styles\Default\slider-h.gif" />
+    <Content Include="kendo\styles\Default\slider-v.gif" />
+    <Content Include="kendo\styles\Default\sprite.png" />
     <Content Include="kendo\styles\images\back.png" />
     <Content Include="kendo\styles\images\KendoUI.ttf" />
     <Content Include="kendo\styles\images\KendoUI.woff" />
     <Content Include="kendo\styles\kendo.mobile.all.min.css" />
+    <Content Include="projectList.html" />
+    <Content Include="scripts\editTask.js" />
     <Content Include="scripts\hello-world.js" />
+    <Content Include="scripts\index.js" />
     <Content Include="styles\main.css" />
     <Content Include="cordova.ios.js">
       <Platform>iOS</Platform>
@@ -74,6 +90,8 @@
       <Platform>Android</Platform>
       <TargetName>cordova.js</TargetName>
     </Content>
+    <Content Include="taskList.html" />
+    <Content Include="userList.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Telerik\ICE\Tools\Mobile\MobileTools.targets" />
 </Project>

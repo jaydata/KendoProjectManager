@@ -1,0 +1,26 @@
+<div data-role="view" id="tabstrip-editProject" data-title="Edit project" data-model="viewModel">
+	<header data-role="header">
+		<div data-role="navbar">
+			<a data-align="left" data-role="backbutton">Back</a>
+			<span data-role="view-title"></span>
+			<a data-align="right" data-role="button" data-icon="save" data-bind="click:saveProject">Save</a>
+		</div>
+	</header>
+	<form id="categoryFrom" data-bind="submit: saveProject">
+		<h1>Project 1</h1>
+		<ul data-role="listview" data-style="inset">
+			<li>
+				<div>
+					<span>Name:</span>
+					<input id="projectName" name="projectName" data-bind="value: selectedProject.Name" placeholder="Enter project name" required type="text" />
+				</div>
+				<div>
+					<span class="k-invalid-msg" data-for="projectName" style="display:block"></span>
+				</div>
+			</li>
+			<li>
+				Description: <textarea data-bind="value: selectedProject.Description" placeholder="Project description" rows="5" style="resize: none"></textarea>
+			</li>
+		</ul>
+	</form>
+</div>

@@ -1,0 +1,34 @@
+<div data-role="view" id="tabstrip-userEdit" data-title="Task list">
+	<header data-role="header">
+		<div data-role="navbar">
+			<a data-align="left" data-role="backbutton">Back</a>
+			<span data-role="view-title"></span>
+			<a data-align="right" data-role="button" data-icon="save" href="editTask.html">Save</a>
+		</div>
+	</header>
+	<form id="categoryFrom" data-bind="submit: saveTask">
+		<h2>Kun Béla</h2>
+		<ul data-role="listview" data-style="inset">
+			<li>
+				Login:
+				<input data-bind="value: task.Todo" placeholder="Login name" required type="text" />
+			</li>
+			<li>
+				First name:
+				<input id="startDate" data-bind="value: task.Todo" placeholder="First name" type="text" />
+			</li>
+			<li>
+				Last name:
+				<input id="endDate" data-bind="value: task.Todo" placeholder="Last name" type="text" />
+			</li>
+			<li>
+				Groups:
+				<a data-role="button" data-align="right" href="selectGroup.html">Select</a>
+			</li>
+			<li>
+				Set password:
+				<input type="checkbox" data-bind="checked: task.Completed" data-role="switch" />
+			</li>
+		</ul>
+	</form>
+</div>
