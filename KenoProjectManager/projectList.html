@@ -2,24 +2,13 @@
 	<header data-role="header">
 		<div data-role="navbar">
 			<span data-role="view-title"></span>
-            <a data-align="right" data-role="button" data-icon="add" href="projectEdit.html" data-bind="click:newProject">Add</a>
+			<a data-align="right" data-role="button" data-icon="add" href="projectEdit.html" data-bind="click:newProject">Add</a>
 		</div>
-	</header> 
-	<ul data-role="listview" data-style="inset" data-bind="source: projectList, events:{select:selectProject}" data-template="projectListItem">
-		<li data-icon="toprated"><a href="taskList.html">Project 1</a></li>
-        <li data-icon="global"><a href="taskList.html">Project 2</a></li>
-        <li data-icon="global"><a href="taskList.html">Project 3</a></li>
-        <li data-icon="global"><a href="taskList.html">Project 4</a></li>
-        <li data-icon="global"><a href="taskList.html">Project 5</a></li>
-        <li data-icon="global"><a href="taskList.html">Project 6</a></li>
-        <li data-icon="global"><a href="taskList.html">Project 7</a></li>
-        <li data-icon="global"><a href="taskList.html">Project 8</a></li>
-        <li data-icon="global"><a href="taskList.html">Project 9</a></li>
-        <li data-icon="global"><a href="taskList.html">Project 10</a></li>
-        <li data-icon="global"><a href="taskList.html">Project 11</a></li>
-        <li data-icon="global"><a href="taskList.html">Project 12</a></li>
+	</header>
+	<ul id="t2" data-role="listview" data-style="inset" data-bind="source: projectList, events:{click:selectProject}" data-template="projectListItem">
 	</ul>
-    <script id="projectListItem" type="text/x-kendo-template">
-        <li data-icon="global"><a href="taskList.html">Project 12</a></li>
-    </script>
+	<script id="projectListItem" type="text/x-kendo-template">
+		<a href="taskList.html" data-role="listview-link" data-bind="text:Name"></a>
+        <a href="projectEdit.html" data-role="detailbutton" data-icon="compose"></a>
+	</script>
 </div>

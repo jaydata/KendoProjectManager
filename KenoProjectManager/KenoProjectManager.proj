@@ -62,7 +62,7 @@
     <Content Include="selectGroup.html" />
     <Content Include="userEdit.html" />
     <Content Include="projectEdit.html" />
-    <Content Include="editTask.html" />
+    <Content Include="taskEdit.html" />
     <Content Include="index.html" />
     <Content Include="kendo\js\jquery.min.js" />
     <Content Include="kendo\js\kendo.mobile.min.js" />
