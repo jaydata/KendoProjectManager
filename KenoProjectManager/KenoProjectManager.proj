@@ -58,6 +58,7 @@
     <Resource Include="App_Resources\Android\drawable-nodpi\splashscreen.9.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="scripts\userViewModel.js" />
     <Content Include="scripts\viewModel.js" />
     <Content Include="selectGroup.html" />
     <Content Include="userEdit.html" />

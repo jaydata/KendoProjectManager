@@ -1,4 +1,4 @@
-<div data-role="view" id="tabstrip-userlist" data-title="User list">
+<div data-role="view" id="tabstrip-userlist" data-model="userViewModel" data-title="User list" data-init="userViewModel.initializeUserList" data-show="userViewModel.updateViewModel">
 	<header data-role="header">
 		<div data-role="navbar">
             <a data-align="left" data-role="backbutton">Back</a>
@@ -6,10 +6,11 @@
             <a data-align="right" data-role="button" data-icon="add" href="userEdit.html">Add</a>
 		</div>
 	</header>
-	<ul data-role="listview" data-style="inset">
-		<li><a href="userEdit.html">Kun Béla</a></li>
-        <li><a href="userEdit.html">Hát Izsák</a></li>
-        <li><a href="userEdit.html">User 1</a></li>
-        <li><a href="userEdit.html">User 2</a></li>
+	<ul data-role="listview" data-style="inset" data-bind="source:userList, events:{click: selectUser}" data-template="userListItem">
+		
 	</ul>
+    <script id="userListItem" type="text/x-kendo-template">
+		<a href="userEdit.html" data-role="listview-link">#:Login# (#:FirstName# #:LastName#)</a>
+            <a href="userEdit.html" data-role="detailbutton" data-icon="details"></a>
+	</script>
 </div>

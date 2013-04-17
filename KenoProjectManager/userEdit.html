@@ -1,34 +1,40 @@
-<div data-role="view" id="tabstrip-userEdit" data-title="Task list">
+<div data-role="view" id="tabstrip-userEdit" data-title="User edit" data-model="userViewModel">
 	<header data-role="header">
 		<div data-role="navbar">
 			<a data-align="left" data-role="backbutton">Back</a>
 			<span data-role="view-title"></span>
-			<a data-align="right" data-role="button" data-icon="save" href="editTask.html">Save</a>
+			<a data-align="right" data-role="button" data-icon="save" data-bind="click:saveUser">Save</a>
 		</div>
 	</header>
-	<form id="categoryFrom" data-bind="submit: saveTask">
-		<h2>Kun Béla</h2>
+	<form id="categoryFrom" data-bind="submit: saveUser">
+		<h2 data-bind="html:selectedUser.Login">Kun Béla</h2>
 		<ul data-role="listview" data-style="inset">
 			<li>
 				Login:
-				<input data-bind="value: task.Todo" placeholder="Login name" required type="text" />
+				<input data-bind="value: selectedUser.Login" placeholder="Login name" required type="text" />
 			</li>
 			<li>
 				First name:
-				<input id="startDate" data-bind="value: task.Todo" placeholder="First name" type="text" />
+				<input id="startDate" data-bind="value: selectedUser.FirstName" placeholder="First name" type="text" />
 			</li>
 			<li>
 				Last name:
-				<input id="endDate" data-bind="value: task.Todo" placeholder="Last name" type="text" />
+				<input id="endDate" data-bind="value: selectedUser.LastName" placeholder="Last name" type="text" />
 			</li>
 			<li>
-				Groups:
-				<a data-role="button" data-align="right" href="selectGroup.html">Select</a>
+				Password:
+				<input id="usrPsw" type="password" data-bind="checked: selectedUser.Completed" />
 			</li>
 			<li>
-				Set password:
-				<input type="checkbox" data-bind="checked: task.Completed" data-role="switch" />
+				Repeat password:
+				<input type="password" data-bind="checked: selectedUser.Completed" />
 			</li>
 		</ul>
+        <h2>Groups</h2>
+        <ul data-role="listview" data-style="inset" data-bind="source:groupList" data-template="groupListItem">
+	    </ul>
 	</form>
+    <script id="groupListItem" type="text/x-kendo-template">
+        <label><input type="checkbox" value="#= id#" data-bind="checked:selectedUser.Groups" />#:Name#</label>
+	</script>
 </div>

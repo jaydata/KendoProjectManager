@@ -1,30 +1,13 @@
-<div data-role="view" id="tabstrip-selectGroup" data-title="Select group" data-layout="checklayout">
+<div data-role="view" id="tabstrip-selectGroup" data-title="Select group" data-model="userViewModel" data-layout="checklayout">
 	<header data-role="header">
 		<div data-role="navbar">
 			<a data-align="left" data-role="backbutton">Back</a>
 			<span data-role="view-title"></span>
-			<a data-align="right" data-role="button" href="#:back">Save</a>
 		</div>
 	</header>
-	<ul data-role="listview" data-style="inset">
-		<li>
-			<label>
-				<input type="checkbox" />
-				Admin
-			</label>
-		</li>
-		<li>
-			<label>
-				<input type="checkbox" />
-				Project manager
-			</label>
-		</li>
-		<li>
-			<label>
-				<input type="checkbox" />
-				User
-			</label>
-		</li>
-
+	<ul data-role="listview" data-style="inset" data-bind="source:groupList" data-template="groupListItem">
 	</ul>
+    <script id="groupListItem" type="text/x-kendo-template">
+        <label><input type="checkbox" value="#= id#" data-bind="checked:selectedUser.Groups" />#:Name#</label>
+	</script>
 </div>

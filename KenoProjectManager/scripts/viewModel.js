@@ -1,22 +1,3 @@
-var Project = $data.define("Projects", {
-	Name: String,
-	Description: String
-});
-
-var Task = $data.define("Tasks", {
-	Todo: String,
-	StartDate: Date,
-	EndDate: Date,
-	Priority: "int",
-	Completed: Boolean,
-	Project_Id:"int"
-});
-
-var ProjectManager = $data.EntityContext.extend('ProjectManager', {
-	Projects: { type: $data.EntitySet, elementType: Project },
-	Tasks: { type: $data.EntitySet, elementType: Task },
-});
-
 var viewModel = kendo.observable({
 	loginName:null,
 	password:null,
