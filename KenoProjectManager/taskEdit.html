@@ -42,9 +42,9 @@
 		<div>
 			<header>
 				<span>Kun Béla</span>
-				<span>2012.01.01</span>
+				<span>#=CreateDate.toISOString().split('T')[0]#</span>
 			</header>
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+			<p data-bind="html: Description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
 		</div>
 	</script>
 </div>

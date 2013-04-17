@@ -74,20 +74,22 @@ var viewModel = kendo.observable({
 		if (viewModel.selectedTask.isNew()) {        
 			viewModel.taskList.add(viewModel.selectedTask);
 		}
+		viewModel.taskList.bind("sync", function() {
+			console.log("Save worklog if needed");
+			if ($('#taskDescription').val().length > 0) {
+				var workLog = viewModel.workLogs.createItem();
+				workLog.set('CreateDate', new Date());
+				workLog.set('Description', $('#taskDescription').val());
+				workLog.set('Task_Id', viewModel.selectedTask.id);
+				viewModel.workLogs.add(workLog);
+				viewModel.workLogs.sync();
+			}
+			app.navigate("#:back");
+		});
 		viewModel.taskList.sync();
-		if ($('#taskDescription').val().length > 0) {
-			console.log("save worklogs");
-			var workLog = viewModel.workLogs.createItem();
-			workLog.set('CreateDate', new Date());
-			workLog.set('Description', $('#taskDescription').val());
-			workLog.set('Task_Id', viewModel.selectedTask.id);
-			viewModel.workLogs.add(workLog);
-			viewModel.workLogs.sync();
-		}
-		app.navigate("#:back");
 	},
 	selectTask:function(e) {
 		viewModel.set("selectedTask", e.dataItem);
-		viewModel.set("workLogs", viewModel.stormProvider.WorkLogs.filter("it.Task_Id == this.tId", {tId:viewModel.selectedTask.id}).asKendoDataSource());
+		viewModel.set("workLogs", viewModel.stormProvider.WorkLogs.filter("it.Task_Id == this.tId", {tId:viewModel.selectedTask.id}).orderByDescending("it.CreateDate").asKendoDataSource());
 	}
 });
