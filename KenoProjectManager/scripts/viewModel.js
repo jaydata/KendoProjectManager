@@ -34,7 +34,7 @@ var viewModel = kendo.observable({
 			viewModel.stormProvider = mydatabase;
 			viewModel.projectList = mydatabase.Projects.asKendoDataSource();
 			viewModel.myTaskList = mydatabase.Tasks.filter("it.AssignedTo == this.UserName", {UserName:viewModel.loginName}).asKendoDataSource();
-			viewModel.taskList = mydatabase.Tasks.asKendoDataSource();//mydatabase.Tasks.filter("it.Project_Id == this.pId", {pId:viewModel.selectedProjectId}).asKendoDataSource();
+			viewModel.taskList = mydatabase.Tasks.asKendoDataSource();
 			viewModel.workLogs = mydatabase.WorkLogs.orderByDescending("it.CreateDate").asKendoDataSource();
 			viewModel.taskList.bind("sync", viewModel.saveWorkLog);
 			$('.km-tabstrip').show();
