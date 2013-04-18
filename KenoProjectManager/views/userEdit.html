@@ -3,7 +3,8 @@
 		<div data-role="navbar">
 			<a data-align="left" data-role="backbutton">Back</a>
 			<span data-role="view-title"></span>
-			<a data-align="right" data-role="button" data-icon="save" data-bind="click:saveUser">Save</a>
+			<a data-align="right" data-role="button" data-icon="delete" data-bind="click:removeUser"></a>
+            <a data-align="right" data-role="button" data-bind="click:saveUser">Save</a>
 		</div>
 	</header>
 	<form id="categoryFrom" data-bind="submit: saveUser">
@@ -31,7 +32,10 @@
 			</li>
 		</ul>
         <h2>Groups</h2>
-        <ul data-role="listview" data-style="inset" data-bind="source:groupList" data-template="groupListItem">
+        <ul data-role="listview" data-style="inset">
+            <li><label><input type="checkbox" value="NTA2YzQ4ODFiZjdkYmQxZDBhMDAwMGJj" data-bind="checked:selectedUser.Groups" />Administrator</label></li>
+            <li><label><input type="checkbox" value="NTE2ZDU0MWJiZTAyYTI3MzE0MDAwMDAx" data-bind="checked:selectedUser.Groups" />Management</label></li>
+            <li><label><input type="checkbox" value="NTE2ZDU0MjViZTAyYTI3MzE0MDAwMDAy" data-bind="checked:selectedUser.Groups" />Developer</label></li>
 	    </ul>
 	</form>
     <script id="groupListItem" type="text/x-kendo-template">

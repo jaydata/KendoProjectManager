@@ -1,7 +1,6 @@
 var userViewModel = kendo.observable({
 	userList:new kendo.data.DataSource(),
 	groupList:new kendo.data.DataSource(),
-	group2:['NTE2ZDU0MjViZTAyYTI3MzE0MDAwMDAy'],
 	selectedUser:null,
 	stormProvider: null,
 	apiKey: {
@@ -24,11 +23,15 @@ var userViewModel = kendo.observable({
 			userViewModel.stormProvider = mydatabase;
 			userViewModel.set('userList', mydatabase.Users.asKendoDataSource());
 			userViewModel.set('groupList', mydatabase.Groups.asKendoDataSource());
+			userViewModel.userList.bind("sync", userViewModel.setPassword);
 		});
 	},
 	updateViewModel:function() {
 		console.log("Update viewModel");
-		//userViewModel.groupList.read();
+		userViewModel.userList.read();
+	},
+	newUser:function() {
+		userViewModel.set("selectedUser", userViewModel.userList.createItem());
 	},
 	selectUser:function(e) {
 		userViewModel.set("selectedUser", e.dataItem);
@@ -37,21 +40,24 @@ var userViewModel = kendo.observable({
 		if (userViewModel.selectedUser.isNew()) {
 			userViewModel.userList.add(userViewModel.selectedUser);
 		}
+		userViewModel.userList.sync();
+	},
+	setPassword:function() {
 		if ($('#usrPsw').val().length > 0) {
-			userViewModel.userList.bind("sync", function() {
-				console.log("save password");
-				userViewModel.stormProvider.setPassword(userViewModel.selectedUser.Login, $('#usrPsw').val())
-				.then(function() {
-					console.log("change user password:", arguments);
-					app.navigate('#:back');
-				});
+			console.log("save password");
+			userViewModel.stormProvider.setPassword(userViewModel.selectedUser.Login, $('#usrPsw').val())
+			.then(function() {
+				console.log("change user password:", arguments);
+				app.navigate('#:back');
 			});
-            userViewModel.userList.sync();
 		}
 		else {
-			userViewModel.userList.sync();
 			app.navigate('#:back');
 		}
+	},
+	removeUser:function() {
+		userViewModel.userList.remove(userViewModel.selectedUser);
+        userViewModel.userList.sync();
 	},
 	isInGroup:function(item) {
 		return userViewModel.selectedUser.Groups.indexOf(item.GroupID) >= 0;

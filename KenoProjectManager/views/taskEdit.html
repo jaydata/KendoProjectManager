@@ -1,10 +1,10 @@
-<script src="scripts/editTask.js"></script>
-<div data-role="view" id="tabstrip-editTask" data-title="Edit task" data-model="viewModel" data-init="editTask_Initialize">
+<div data-role="view" id="tabstrip-editTask" data-title="Edit task" data-model="viewModel" data-init="viewModel.initializeEditTask">
 	<header data-role="header">
 		<div data-role="navbar">
 			<a data-align="left" data-role="backbutton">Back</a>
 			<span data-role="view-title"></span>
-			<a data-align="right" data-role="button" data-icon="save" data-bind="click:saveTask">Save</a>
+			<a data-align="right" data-role="button" data-icon="delete" data-bind="click:removeTask">d</a>
+            <a data-align="right" data-role="button" data-bind="click:saveTask">Save</a>
 		</div>
 	</header>
 	<form id="categoryFrom" data-bind="submit: saveTask">
@@ -29,6 +29,10 @@
 			<li>
 				Completed:
 				<input type="checkbox" data-bind="checked: selectedTask.Completed" data-role="switch" />
+			</li>
+            <li>
+				A:
+				<input id="assignTo" data-bind="value:selectedTask.AssignedTo" type="text" />
 			</li>
 			<li>
 				Description: <textarea id="taskDescription" style="resize: none" rows="5" placeholder="Comment"></textarea>

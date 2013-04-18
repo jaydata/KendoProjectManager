@@ -6,9 +6,9 @@
             <a data-align="right" data-role="button" data-icon="add" href="views/taskEdit.html" data-bind="click:newTask">Add</a>
 		</div>
 	</header>
-	<ul data-role="listview" data-style="inset" data-bind="source:myTaskList, events:{click:selectTask}" data-template="taskListItem">
+	<ul data-role="listview" data-style="inset" data-bind="source:myTaskList, events:{click:selectTask}" data-template="myTaskListItem">
 	</ul>
-    <script id="taskListItem" type="text/x-kendo-template">
+    <script id="myTaskListItem" type="text/x-kendo-template">
 		<a href="views/taskEdit.html" data-role="listview-link" data-bind="text:Todo"></a>
 	</script>
 </div>
