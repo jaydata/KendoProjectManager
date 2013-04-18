@@ -13,10 +13,6 @@ var userViewModel = kendo.observable({
 			user: viewModel.loginName,
 			password: viewModel.password
 		};
-		if (!credentials.user) {
-			credentials.user = 'admin';
-			credentials.password = 'admin';
-		}
 		console.log(this, this.apiKey, credentials);
 		$data.initService(userViewModel.apiKey, credentials).then(function(mydatabase, factory, type) {
 			console.log("Connect to db");
