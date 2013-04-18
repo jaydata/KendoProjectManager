@@ -3,12 +3,12 @@
 		<div data-role="navbar">
             <a data-align="left" data-role="backbutton">Back</a>
 			<span data-role="view-title"></span>
-            <a data-align="right" data-role="button" data-icon="add" href="taskEdit.html" data-bind="click:newTask">Add</a>
+            <a data-align="right" data-role="button" data-icon="add" href="views/taskEdit.html" data-bind="click:newTask">Add</a>
 		</div>
 	</header>
 	<ul data-role="listview" data-style="inset" data-bind="source:taskList, events:{click:selectTask}" data-template="taskListItem">
 	</ul>
     <script id="taskListItem" type="text/x-kendo-template">
-		<a href="taskEdit.html" data-role="listview-link" data-bind="text:Todo"></a>
+		<a href="views/taskEdit.html" data-role="listview-link" data-bind="text:Todo"></a>
 	</script>
 </div>

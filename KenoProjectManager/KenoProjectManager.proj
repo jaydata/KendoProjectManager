@@ -33,6 +33,7 @@
       <Platform>Android</Platform>
     </Folder>
     <Folder Include="kendo\styles\Default" />
+    <Folder Include="views" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="App_Resources\iOS\icon.png" />
@@ -60,10 +61,11 @@
   <ItemGroup>
     <Content Include="scripts\userViewModel.js" />
     <Content Include="scripts\viewModel.js" />
-    <Content Include="selectGroup.html" />
-    <Content Include="userEdit.html" />
-    <Content Include="projectEdit.html" />
-    <Content Include="taskEdit.html" />
+    <Content Include="views\myTaskList.html" />
+    <Content Include="views\selectGroup.html" />
+    <Content Include="views\userEdit.html" />
+    <Content Include="views\projectEdit.html" />
+    <Content Include="views\taskEdit.html" />
     <Content Include="index.html" />
     <Content Include="kendo\js\jquery.min.js" />
     <Content Include="kendo\js\kendo.mobile.min.js" />
@@ -78,10 +80,8 @@
     <Content Include="kendo\styles\images\KendoUI.ttf" />
     <Content Include="kendo\styles\images\KendoUI.woff" />
     <Content Include="kendo\styles\kendo.mobile.all.min.css" />
-    <Content Include="projectList.html" />
+    <Content Include="views\projectList.html" />
     <Content Include="scripts\editTask.js" />
-    <Content Include="scripts\hello-world.js" />
-    <Content Include="scripts\index.js" />
     <Content Include="styles\main.css" />
     <Content Include="cordova.ios.js">
       <Platform>iOS</Platform>
@@ -91,8 +91,8 @@
       <Platform>Android</Platform>
       <TargetName>cordova.js</TargetName>
     </Content>
-    <Content Include="taskList.html" />
-    <Content Include="userList.html" />
+    <Content Include="views\taskList.html" />
+    <Content Include="views\userList.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Telerik\ICE\Tools\Mobile\MobileTools.targets" />
 </Project>

@@ -2,13 +2,13 @@
 	<header data-role="header">
 		<div data-role="navbar">
 			<span data-role="view-title"></span>
-			<a data-align="right" data-role="button" data-icon="add" href="projectEdit.html" data-bind="click:newProject">Add</a>
+			<a data-align="right" data-role="button" data-icon="add" href="views/projectEdit.html" data-bind="click:newProject">Add</a>
 		</div>
 	</header>
 	<ul id="t2" data-role="listview" data-style="inset" data-bind="source: projectList, events:{click:selectProject}" data-template="projectListItem">
 	</ul>
 	<script id="projectListItem" type="text/x-kendo-template">
-		<a href="taskList.html" data-role="listview-link" data-bind="text:Name"></a>
-        <a href="projectEdit.html" data-role="detailbutton" data-icon="compose"></a>
+		<a href="views/taskList.html" data-role="listview-link" data-bind="text:Name"></a>
+        <a href="views/projectEdit.html" data-role="detailbutton" data-icon="compose"></a>
 	</script>
 </div>

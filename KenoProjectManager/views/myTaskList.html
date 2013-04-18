@@ -1,0 +1,14 @@
+<div data-role="view" id="tabstrip-myTaskList" data-title="My task list" data-model="viewModel" data-show="viewModel.initializeMyTaskList">
+    <header data-role="header">
+		<div data-role="navbar">
+            <a data-align="left" data-role="backbutton">Back</a>
+			<span data-role="view-title"></span>
+            <a data-align="right" data-role="button" data-icon="add" href="views/taskEdit.html" data-bind="click:newTask">Add</a>
+		</div>
+	</header>
+	<ul data-role="listview" data-style="inset" data-bind="source:myTaskList, events:{click:selectTask}" data-template="taskListItem">
+	</ul>
+    <script id="taskListItem" type="text/x-kendo-template">
+		<a href="views/taskEdit.html" data-role="listview-link" data-bind="text:Todo"></a>
+	</script>
+</div>
