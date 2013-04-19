@@ -12,6 +12,14 @@ var viewModel = kendo.observable({
 	selectedProject:null,
 	selectedTask:null,
 	
+	canAddProject:false,
+	canEditProject:false,
+	canChangeProject:true,
+	canAddTask:false,
+	canDeleteTask:false,
+	canAddUser:false,
+	canDeleteUser:false,
+    
 	apiKey: {
 		ownerId: '952014ac-da7c-4024-93b2-644217ddba2c',
 		appId: 'ea20ec7c-6bd5-4db8-aa84-e62d789b2de5',
@@ -37,8 +45,16 @@ var viewModel = kendo.observable({
 			viewModel.taskList = mydatabase.Tasks.asKendoDataSource();
 			viewModel.workLogs = mydatabase.WorkLogs.orderByDescending("it.CreateDate").asKendoDataSource();
 			viewModel.taskList.bind("sync", viewModel.saveWorkLog);
+			viewModel.set('canChangeProject', false);
 			$('.km-tabstrip').show();
-			app.navigate("views/projectList.html");
+			userViewModel.initializeUserList(function() {
+				$.when(userViewModel.isInGroups(['admin','management']).then(function(result) {viewModel.set('canAddProject', result);}),
+					   userViewModel.isInGroups(['admin','management']).then(function(result) {viewModel.set('canChangeProject', result);}))
+    				.done(function() {
+                        console.log("Goto project list");
+    					app.navigate("views/projectList.html");
+    				});
+			});
 		});
 	},
 	selectProject:function(e) {
@@ -100,5 +116,27 @@ var viewModel = kendo.observable({
 			viewModel.workLogs.sync();
 		}
 		app.navigate("#:back");
-	}
+	}/*,
+	showProjectList:function() {
+		console.log("showProject");
+		var elements = $('*[data-access]');
+		var idx = 0;
+		while (idx < elements.length) {
+			console.log(idx);
+			var element = elements.get(idx++);
+			var access = element.dataset.access;
+			viewModel.checkAccess(access.split(','), element);
+		}
+	},
+	checkAccess:function(groups, element) {
+		userViewModel.isInGroups(groups)
+		.then(function(result) {
+			if (result) {
+				$(element).show();
+			}
+			else {
+				$(element).hide();
+			}
+		});
+	}*/
 });
