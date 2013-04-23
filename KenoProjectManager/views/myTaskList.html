@@ -3,7 +3,7 @@
 		<div data-role="navbar">
             <a data-align="left" data-role="backbutton">Back</a>
 			<span data-role="view-title"></span>
-            <a data-align="right" data-role="button" data-icon="add" href="views/taskEdit.html" data-bind="click:newTask">Add</a>
+            <a data-align="right" data-role="button" data-icon="add" href="views/taskEdit.html" data-bind="click:newTask,visible:canAddTask">Add</a>
 		</div>
 	</header>
 	<ul data-role="listview" data-style="inset" data-bind="source:myTaskList, events:{click:selectTask}" data-template="myTaskListItem">

@@ -3,8 +3,8 @@
 		<div data-role="navbar">
 			<a data-align="left" data-role="backbutton">Back</a>
 			<span data-role="view-title"></span>
-			<a data-align="right" data-role="button" data-icon="delete" data-bind="click:removeTask">d</a>
-            <a data-align="right" data-role="button" data-bind="click:saveTask">Save</a>
+			<a data-align="right" data-role="button" data-icon="delete" data-bind="click:removeTask, visible:canDeleteTask"></a>
+            <a data-align="right" data-role="button" data-bind="click:saveTask, visible:canChangeTask">Save</a>
 		</div>
 	</header>
 	<form id="categoryFrom" data-bind="submit: saveTask">

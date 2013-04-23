@@ -1,14 +1,21 @@
 <div data-role="view" id="tabstrip-taskList" data-title="Task list" data-model="viewModel" data-show="viewModel.initializeTaskList">
-    <header data-role="header">
+	<header data-role="header">
 		<div data-role="navbar">
-            <a data-align="left" data-role="backbutton">Back</a>
+			<a data-align="left" data-role="backbutton">Back</a>
 			<span data-role="view-title"></span>
-            <a data-align="right" data-role="button" data-icon="add" href="views/taskEdit.html" data-bind="click:newTask">Add</a>
+			<a data-align="right" data-role="button" data-icon="add" href="views/taskEdit.html" data-bind="click:newTask, visible:canAddTask">Add</a>
 		</div>
 	</header>
+	<div>
+		<h3>
+			<span data-bind="html:selectedProject.Name"></span>
+			<a href="views/projectEdit.html" data-role="button" data-icon="compose" data-bind="visible:canChangeProject" style="padding:5px;float:right;"></a>
+		</h3>
+		<p data-bind="html:selectedProject.Description"></p>
+	</div>
 	<ul data-role="listview" data-style="inset" data-bind="source:taskList, events:{click:selectTask}" data-template="taskListItem">
 	</ul>
-    <script id="taskListItem" type="text/x-kendo-template">
+	<script id="taskListItem" type="text/x-kendo-template">
 		<a href="views/taskEdit.html" data-role="listview-link" data-bind="text:Todo"></a>
 	</script>
 </div>

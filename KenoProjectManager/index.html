@@ -9,7 +9,8 @@
 
 		<script type="text/javascript" src="http://include.jaydata.org/jaydata.js"></script>
 		<script type="text/javascript" src="http://jaydata-cdn.s3.amazonaws.com/datajs-1.0.3-patched.js"></script>
-		<script type="text/javascript" src="http://include.jaydata.org/jaydatamodules/kendo.js"></script>
+        <!--le kell majd cserelni a cdn-esre de a jelenlegi verzio (1.2.7.1) meg bugos-->
+		<script type="text/javascript" src="scripts/kendo.js"></script>
 
 		<script src="scripts/viewModel.js"></script>
 		<script src="scripts/userViewModel.js"></script>
@@ -18,7 +19,8 @@
 		<link href="styles/main.css" rel="stylesheet" />
 	</head>
 	<body>
-		<div data-role="view" id="tabstrip-login" data-title="Login" data-model="viewModel">
+		<div data-role="view" id="tabstrip-login" data-title="Login" data-model="viewModel" style="text-align:center;">
+            <h1>Project manager</h1>
 			<div id='loginDiv'>
 				<label for="txtName" style="display: block;">Enter your name:</label>
 				<input type="text" id="txtName" value="" data-bind="value: loginName" class="input-field"/>

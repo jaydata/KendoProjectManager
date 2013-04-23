@@ -5,6 +5,8 @@ var userViewModel = kendo.observable({
 	stormProvider: null,
 	logedInUser:null,
 	logedInUserGroups:null,
+    canAddUser:false,
+	canDeleteUser:false,
 	apiKey: {
 		ownerId:'952014ac-da7c-4024-93b2-644217ddba2c',
 		appId: 'ea20ec7c-6bd5-4db8-aa84-e62d789b2de5',

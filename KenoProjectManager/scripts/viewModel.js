@@ -14,11 +14,13 @@ var viewModel = kendo.observable({
 	
 	canAddProject:false,
 	canEditProject:false,
-	canChangeProject:true,
+	canChangeProject:false,
+    
 	canAddTask:false,
 	canDeleteTask:false,
-	canAddUser:false,
-	canDeleteUser:false,
+    canChangeTask:false,
+    
+
     
 	apiKey: {
 		ownerId: '952014ac-da7c-4024-93b2-644217ddba2c',
@@ -45,13 +47,19 @@ var viewModel = kendo.observable({
 			viewModel.taskList = mydatabase.Tasks.asKendoDataSource();
 			viewModel.workLogs = mydatabase.WorkLogs.orderByDescending("it.CreateDate").asKendoDataSource();
 			viewModel.taskList.bind("sync", viewModel.saveWorkLog);
-			viewModel.set('canChangeProject', false);
-			$('.km-tabstrip').show();
+			
 			userViewModel.initializeUserList(function() {
 				$.when(userViewModel.isInGroups(['admin','management']).then(function(result) {viewModel.set('canAddProject', result);}),
-					   userViewModel.isInGroups(['admin','management']).then(function(result) {viewModel.set('canChangeProject', result);}))
+    				   userViewModel.isInGroups(['admin','management']).then(function(result) {viewModel.set('canEditProject', result);}),
+                       userViewModel.isInGroups(['admin','management']).then(function(result) {viewModel.set('canChangeProject', result);}),
+                       userViewModel.isInGroups(['admin','management','developer']).then(function(result) {viewModel.set('canAddTask', result);}),
+                       userViewModel.isInGroups(['admin','management']).then(function(result) {viewModel.set('canDeleteTask', result);}),
+                       userViewModel.isInGroups(['admin','management','developer']).then(function(result) {viewModel.set('canChangeTask', result);}),
+                       userViewModel.isInGroups(['admin']).then(function(result) {userViewModel.set('canAddUser', result);}),
+                       userViewModel.isInGroups(['admin']).then(function(result) {userViewModel.set('canDeleteUser', result);}))
     				.done(function() {
                         console.log("Goto project list");
+                        $('.km-tabstrip').show();
     					app.navigate("views/projectList.html");
     				});
 			});
@@ -116,27 +124,5 @@ var viewModel = kendo.observable({
 			viewModel.workLogs.sync();
 		}
 		app.navigate("#:back");
-	}/*,
-	showProjectList:function() {
-		console.log("showProject");
-		var elements = $('*[data-access]');
-		var idx = 0;
-		while (idx < elements.length) {
-			console.log(idx);
-			var element = elements.get(idx++);
-			var access = element.dataset.access;
-			viewModel.checkAccess(access.split(','), element);
-		}
-	},
-	checkAccess:function(groups, element) {
-		userViewModel.isInGroups(groups)
-		.then(function(result) {
-			if (result) {
-				$(element).show();
-			}
-			else {
-				$(element).hide();
-			}
-		});
-	}*/
+	}
 });
