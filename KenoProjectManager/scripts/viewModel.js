@@ -32,12 +32,12 @@ var viewModel = kendo.observable({
 			user: this.loginName,
 			password: this.password
 		};
-		if (!credentials.user) {
+		/*if (!credentials.user) {
 			credentials.user = 'admin';
 			credentials.password = 'admin';
 			this.loginName = 'admin';
 			this.password = 'admin';
-		}
+		}*/
 		console.log(credentials);
 		app.showLoading();
 		$data.initService(this.apiKey, credentials).then(function(mydatabase, factory, type) {

@@ -33,6 +33,7 @@
       <Platform>Android</Platform>
     </Folder>
     <Folder Include="kendo\styles\Default" />
+    <Folder Include="scripts\providers" />
     <Folder Include="views" />
   </ItemGroup>
   <ItemGroup>
@@ -59,7 +60,10 @@
     <Resource Include="App_Resources\Android\drawable-nodpi\splashscreen.9.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="scripts\kendo.js" />
+    <Content Include="scripts\datajs.js" />
+    <Content Include="scripts\jaydata.min.js" />
+    <Content Include="scripts\kendo.min.js" />
+    <Content Include="scripts\providers\oDataProvider.min.js" />
     <Content Include="scripts\userViewModel.js" />
     <Content Include="scripts\viewModel.js" />
     <Content Include="views\myTaskList.html" />
